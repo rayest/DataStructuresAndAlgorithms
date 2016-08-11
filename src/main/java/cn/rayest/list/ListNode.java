@@ -33,7 +33,7 @@ public class ListNode {
     }
 
     // 遍历链表
-    public int ListLength(ListNode headNode){
+    public int listLength(ListNode headNode){
         int length = 0;
         ListNode currentNOde = headNode;
         while (currentNOde != null){
@@ -41,5 +41,40 @@ public class ListNode {
             currentNOde = currentNOde.getNext();
         }
         return length;
+    }
+
+    // 链表的插入
+    public ListNode insertLinkedList(ListNode headNode, ListNode newNode, int position){
+
+        if (headNode == null){
+            return newNode;
+        }
+        int size = listLength(headNode);
+        if (position > size + 1 || position < 1){
+            System.out.println("插入位置有误");
+            return headNode;
+        }
+
+        // 在表头插入
+        if (position == 1){
+            newNode.setNext(headNode);
+            return newNode;
+        }
+        else {
+            // 表中或表尾插入。
+            // 遍历至要插入的位置的前一个节点位置 previousNode
+            ListNode previousNode = headNode;
+            // count 记录 previousNode 的位置
+            int count = 1;
+            while (count < position - 1){
+                previousNode = previousNode.getNext();
+                count++;
+            }
+            // 类似赋值操作的顺序
+            ListNode currentNode = previousNode.getNext();
+            newNode.setNext(currentNode);
+            previousNode.setNext(newNode);
+        }
+        return headNode;
     }
 }
