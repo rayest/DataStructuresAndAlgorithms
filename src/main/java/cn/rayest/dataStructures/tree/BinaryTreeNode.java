@@ -1,4 +1,4 @@
-package cn.rayest.tree;
+package cn.rayest.dataStructures.tree;
 
 /**
  * Created by Rayest on 2016/8/11 0011.
@@ -32,6 +32,15 @@ public class BinaryTreeNode {
         this.right = right;
     }
 
-
-
+    // Ç°Ðò±éÀú£ºµÝ¹é
+    public void preOrder(BinaryTreeNode root) {
+        if (root == null) {
+            System.out.println("null");
+        } else {
+            System.out.println(root.getData());
+            preOrder(root.getLeft());
+            preOrder(root.getRight());
+        }
+    }
+    
 }
