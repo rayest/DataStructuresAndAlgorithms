@@ -42,5 +42,27 @@ public class BinaryTreeNode {
             preOrder(root.getRight());
         }
     }
-    
+
+    // 中序遍历
+    public void InOrder(BinaryTreeNode root) {
+        if (root == null) {
+            System.out.println("null");
+        } else {
+            InOrder(root.getLeft());
+            System.out.println(root.getData());
+            InOrder(root.getRight());
+        }
+    }
+
+    // 后续遍历
+    public void postOrder(BinaryTreeNode root) {
+        if (root == null) {
+            System.out.println("null");
+        } else {
+            postOrder(root.getLeft());
+            postOrder(root.getRight());
+            System.out.println(root.getData());
+        }
+    }
+
 }
